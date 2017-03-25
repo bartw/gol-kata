@@ -1,0 +1,22 @@
+{
+  "name": "gol-kata",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartw/gol-kata.git"
+  },
+  "author": "Bart Wijnants",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bartw/gol-kata/issues"
+  },
+  "homepage": "https://github.com/bartw/gol-kata#readme",
+  "devDependencies": {
+    "jest": "^19.0.2"
+  }
+}
