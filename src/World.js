@@ -1,15 +1,14 @@
 (() => {
     const gridValidator = require('./gridValidator.js');
-    const Cell = require('./Cell.js');
     const NeighbourCounter = require('./NeighbourCounter.js');
+    const Row = require('./Row.js');
 
     function World(grid) {
         gridValidator.validate(grid);
 
         const neighbourCounter = new NeighbourCounter(grid);
-        const cellGrid = grid.map((row, rowIndex) => row.map((cell, columnIndex) => new Cell(cell, neighbourCounter.countLiving(rowIndex, columnIndex))));
-
-        this.tick = () => cellGrid.map(row => row.map(cell => cell.tick()));
+        const rows = grid.map((row, rowIndex) => new Row(row, column => neighbourCounter.countLiving(rowIndex, column)));
+        this.tick = () => rows.map(row => row.tick());
     }
 
     module.exports = World;
