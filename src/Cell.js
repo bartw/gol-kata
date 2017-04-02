@@ -1,9 +1,11 @@
 (() => {
+    const alive = true;
+    const dead = false;
+    const isUnderPopulation = (neighbours) => neighbours === 3;
+    const isSustenance = (neighbours) => neighbours === 2;
+
     function Cell(isAlive, neighbours) {
-        const isUnderPopulation = () => neighbours === 3;
-        const isSustenance = () => neighbours === 2;
-        
-        this.tick = () => isUnderPopulation() ? true : isSustenance() ? isAlive : false;
+        this.tick = () => isUnderPopulation(neighbours) ? alive : isSustenance(neighbours) ? isAlive : dead;
     }
 
     module.exports = Cell;

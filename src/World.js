@@ -7,8 +7,9 @@
         gridValidator.validate(grid);
 
         const neighbourCounter = new NeighbourCounter(grid);
-        const rows = grid.map((row, rowIndex) => new Row(row, column => neighbourCounter.countLiving(rowIndex, column)));
-        this.tick = () => rows.map(row => row.tick());
+        
+        const mapRow = (row, rowIndex) => new Row(row, column => neighbourCounter.countLiving(rowIndex, column)).tick();
+        this.tick = () => grid.map(mapRow);
     }
 
     module.exports = World;
